@@ -1,23 +1,37 @@
 # Cars_Docker
 
-## Lab-31: Django REST Framework & Docker
+## Lab-33: Authentication & Production Server
 
 <br>
 
 ### Feature Tasks and Requirements
-- Rebuild a custom version of Things API demo project from scratch.
-    - Replace things_project and Thing with your own application and model.
-    - Your model must have at least as many fields as demo’s model.
-    - Your model must have one field that is a foreign key to user.
-    - NOTE: You are not required to build any templates for this lab.
+<br>
+
+- Features - Django
+    - Add JWT Authentication to your API.
+        - Install needed libraries in project configuration and/or site settings.
+    - Keep any pre-existing authentication so DRF Browsable API still usable.
+        - Install needed libraries in project configuration and/or site settings.
+
+<br>
+
+- Features - Docker
+    - Switch to using Gunicorn instead of Django’s built in development server.
+        - mind the number of workers to avoid sluggishness
+
+    - Warning You will run into styling issues when you switch over to Gunicorn.
+        - On Django side you’ll need to properly handle static files using Whitenoise
 
 
 <br>
 
 
-### Features - Docker
-- NOTE Refer to the class demo for built out Dockerfile and docker-compose.yml examples.
-- Update Dockerfile and docker-compose.yml if needed.
+### Storage Options
+
+- Your choice of SQLite or PostgreSQL
+- Adjust docker-compose.yml so that data is persisted in a volume outside of container.
+    - These steps are different depending on whether SQLite or PostgreSQL is being used.
+
 
 <br>
 
