@@ -1,5 +1,3 @@
-# Cars_Docker
-
 ## Lab-33: Authentication & Production Server
 
 <br>
