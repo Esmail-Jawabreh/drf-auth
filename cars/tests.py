@@ -5,21 +5,25 @@ from .models import Cars
 
 # Create your tests here.
 
-class CarsTests(TestCase):
 
+class CarsTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        testuser1 = get_user_model().objects.create_user(username='testuser1', password='pass')
+        testuser1 = get_user_model().objects.create_user(
+            username="testuser1", password="pass"
+        )
         testuser1.save()
 
-        test_cars = Cars.objects.create(name='flower', owner=testuser1, desc="test desc ...")
+        test_cars = Cars.objects.create(
+            name="flower", owner=testuser1, desc="test desc ..."
+        )
         test_cars.save()
 
     def cars_model(self):
         cars = Cars.objects.get(id=1)
-        actual_owner= str(cars.owner)
+        actual_owner = str(cars.owner)
         actual_name = str(cars.name)
         actual_desc = str(cars.desc)
-        self.assertEqual(actual_owner,"testuser1")
-        self.assertEqual(actual_name,"flower")
-        self.assertEqual(actual_desc,"test desc ...")
+        self.assertEqual(actual_owner, "testuser1")
+        self.assertEqual(actual_name, "flower")
+        self.assertEqual(actual_desc, "test desc ...")
